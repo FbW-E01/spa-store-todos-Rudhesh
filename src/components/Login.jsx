@@ -1,21 +1,28 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './Login.css';
+import { UserContext } from './UserContext';
 
-function Login({ setUser }) {
+
+function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const {user, setUser } = useContext(UserContext);
+
+
+
     function doLogin(e) {
         e.preventDefault();
 
-        if (email !== "joel@example.org") {
+        if (email !== "twentylightyear@gmail.com") {
             alert("Invalid email");
             return;
         }
 
-        setUser({ id: 1, email, name: "Joel Peltonen" });
+        setUser({ id: 1, email, name: "Rudhesh Dhote" });
     }
+
 
     return (
         <form className="loginform" onSubmit={doLogin}>
